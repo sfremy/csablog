@@ -48,10 +48,9 @@ categories: [C1.4]
 ### College Board Quiz
 
 ### Independent Work
-- [Asteroids]
-- [Python_Text]
-- [lc/Kepler]
-- [CNN]
+- [Asteroids/PythonText]()
+- [lc/Kepler]()
+- [CNN]()
 
 # Reflective Summary
 
