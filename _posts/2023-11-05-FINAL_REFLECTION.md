@@ -13,4 +13,6 @@ categories: [C1.4]
 
 <p>My contribution to the group project was somewhat limited this trimester. Since backend API work was claimed mainly by Torin and Nandan and there wasn't much room for additional work there, I was primarily restricted to frontend development for the project. However, I did accomplish several critical tasks within the frontend space.</p>
 
-### Unit 2 In-Development Frontend 
+### Unit 2 In-Development Frontend: Code Contributions
+
+### 
