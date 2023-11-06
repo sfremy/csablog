@@ -1,6 +1,6 @@
 ---
 layout: schedule
-title: Time Box
-units: "1,2"
+title: CSP Blog & Study Guide (Time Box)
+units: "1,2,3"
 course: csp
 ---
