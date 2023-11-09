@@ -13,25 +13,25 @@ categories: [C1.4]
 
 <p>My contribution to the group project was somewhat limited this trimester. Since backend API work was claimed mainly by Torin and Nandan and there wasn't much room for additional work there, I was primarily restricted to frontend development for the project. However, I did accomplish several critical tasks within the frontend space.</p>
 
-<img src="Screenshot 2023-11-05 at 20.40.30.png" alt="Commit Sample"/>
+<img src="../images/Screenshot 2023-11-05 at 20.40.30.png" alt="Commit Sample"/>
 
 <p>I made a total of 47 commits over the course of the development of the NART-Movies front page. These included 1163 additions and 695 deletions.</p>
 
-<img src="Screenshot 2023-11-05 at 19.29.19.png" alt="Frontpage Commit"/>
+<img src="../images/Screenshot 2023-11-05 at 19.29.19.png" alt="Frontpage Commit"/>
 
 - Majority of present frontpage save titles and navbar was made by me
 - Scrolling behavior, styles, background, etc. but these are mostly CSS so I won't cover them
 
-<img src="Screenshot 2023-11-05 at 19.28.50" alt="Page Format Sample"/>
+<img src="../images/Screenshot 2023-11-05 at 19.28.50" alt="Page Format Sample"/>
 
 - Similar applications to the other areas of the site, but these are also relatively small contributions
 
-<img src="Screenshot 2023-11-05 at 19.28.07.png" alt="Rec Page Template"/>
+<img src="../images/Screenshot 2023-11-05 at 19.28.07.png" alt="Rec Page Template"/>
 
 - Primarily responsible for pushing the rec system in the original design
 - This here is an early draft of the HTML scripting
 
-<img src="Screenshot 2023-11-05 at 19.27.49.png" alt="Rec System Logic"/>
+<img src="../images/Screenshot 2023-11-05 at 19.27.49.png" alt="Rec System Logic"/>
 
 - First draft of rec system shown here was mine, but the final version was contributed to by all members of the team
 
@@ -45,12 +45,18 @@ categories: [C1.4]
 - [Procedures](https://sfremy.github.io/csablog//c1.4/2023/10/03/Procedures_IPYNB_2_.html)
 - [Simulations](https://sfremy.github.io/csablog//c1.4/2023/10/27/Simulations_IPYNB_2_.html)
 
-### College Board Quiz
+### College Board Quiz Notes
+- Q6: The Internet Engineering Task Force is a volunteer organization dedicated to developing standards and protocols for internet communication.
+- Q23: This is asking for present redundancy or lack therof. (B) has only one route between devices P and S so it is the correct answer.
+- Q41: (B) adjustedTotal <- Max(midtermExam, finalExam) + finalExam
+- Q43: (A) The algorithm runs in reasonable time (n^2 computation steps with n inputs)
+- Q45: P AND Q -> True when both are true only \| NOT(P AND Q) -> False when both are true only. (C)
+- Q46: Here 'undecidable' refers to unsolvable, so it is not possible to solve the problem for all programs and inputs (D).
 
 ### Independent Work
-- [Asteroids/PythonText]()
-- [lc/Kepler]()
-- [CNN]()
+- [Asteroids/PythonText](https://sfremy.github.io/csablog//c1.4/2023/10/30/pytext_IPYNB_2_.html)
+- [lc/Kepler](https://sfremy.github.io/csablog//c1.4/2023/10/31/lc-generation_IPYNB_2_.html)
+- [CNN](https://sfremy.github.io/csablog//c1.4/2023/11/01/CNN-sample_IPYNB_2_.html)
 
 # Reflective Summary
 
