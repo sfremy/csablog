@@ -46,7 +46,7 @@
     </style>
 </head>
 <body>
-    <form id="login" action="javascript:login()">
+    <form id="login" action="javascript:login_user()">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required /><br /><br />
     
@@ -55,39 +55,53 @@
     
         <input type="submit" value="Submit" />
     </form>
-
-    <h1>"uid - " <span id="myText"></span></h1>
     
-    <script>
-        //JS FETCH API URL INSTANCE
-        const apiUrl = "http://127.0.0.1:8086/api/users/authenticate"; //REPLACE WITH OWN API URL
-        let users = [];
-        
-        function login() {
+    <script type="module">
+
+        // uri variable and options object are obtained from config.js
+
+        function login_user() {
+            // Set Authenticate endpoint
+            const url = 'http://127.0.0.1:8086/api/users/authenticate';
+
+            // Set the body of the request to include login data from the DOM
             const body = {
                 uid: document.getElementById("username").value,
                 password: document.getElementById("password").value
             };
 
-            const authOptions = {
-                ...options,
-                method: 'POST',
-                cache: 'no-cache',
-                body: JSON.stringify(body)
-            };
+            // Set headers to mimic the first request and remove the unwanted headers
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', '*/*');
+            headers.append('Cookie', 'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfdWlkIjoidG9ieSJ9.k8yO84FQ_L3RY-MhpTWzFgIHJUcRnROtNm2En0SpKcA');
 
-            fetch(apiUrl, authOptions)
+            // Change options according to Authentication requirements
+            const authOptions = {
+                method: 'POST', // Override the method property
+                cache: 'no-cache', // Set the cache property
+                body: JSON.stringify(body),
+                headers: headers  // SET VALID HEADER
+            };
+            console.log("Sending request with header:", JSON.stringify(headers));
+            console.log("Sending request with body:", JSON.stringify(body));
+            // FETCH AUTHENTICATION & JWT
+            fetch(url, authOptions)
                 .then(response => {
                     // handle error response from Web API
                     if (!response.ok) {
                         if (response.status === 401) {
-                            window.location.href = "{{site.baseurl}}/csablog/401.html";
+                            // Unauthorized - Redirect to 401 error page
+                            window.location.href = "{{site.baseurl}}/401.html";
                         } else if (response.status === 403) {
-                            window.location.href = "{{site.baseurl}}/csablog/403.html";
+                            // Forbidden - Redirect to 403 error page
+                            window.location.href = "{{site.baseurl}}/403.html";
                         } else if (response.status === 400) {
-                            window.location.href = "{{site.baseurl}}/csablog/400.html";
+                            // Forbidden - Redirect to 400 error page
+                            window.location.href = "{{site.baseurl}}/400.html";
                         } else if (response.status === 404) {
-                            window.location.href = "{{site.baseurl}}/csablog/404.html";
+                            // Not Found - Redirect to 404 error page
+                            window.location.href = "{{site.baseurl}}/404.html";
                         } else {
                             // Handle other error responses
                             const errorMsg = 'Login error: ' + response.status;
@@ -95,24 +109,19 @@
                         }
                         return;
                     }
-
-                    alert("Login Successful")
-                    window.location.href = "{{site.baseurl}}/csablog/toc.html";
+                    // Success!!!
+                    // Redirect to the database page
+                    alert("Successfully logged in! You will be redirected to the user database.")
+                    window.location.href = "{{site.baseurl}}/login_entry";
                 })
                 // catch fetch errors (ie ACCESS to server blocked)
                 .catch(err => {
                     console.error(err);
                 });
         }
+        // Attach login_user to the window object, allowing access to form action
+        window.login_user = login_user;
 
-        window.login_user = login;
-
-            //post-login:
-            //lock new page behind status 'admin', throw 403 if attempting to do so on another account
-            //Go to new page if admin
-
-            //Edit (put), and delete (delete) inside
-            //Signup (post) on frontpage
     </script>
 </body>
 </html>
