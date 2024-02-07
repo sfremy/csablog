@@ -1,5 +1,5 @@
 ---
-layout: login
-permalink: /login
-title: Login
+layout: login_layout
+permalink: /login_layout
+title: Login or Sign Up
 ---

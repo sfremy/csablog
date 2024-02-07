@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--LOGIN/SIGNUP HTML ELEMENTS-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!--CSS STYLING FOR LOGIN PAGE-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="login" action="javascript:login()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required /><br /><br />
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /><br /><br />
+    
+        <input type="submit" value="Submit" />
+    </form>
+
+    <h1>"uid - " <span id="myText"></span></h1>
+    
+    <script>
+        //JS FETCH API URL INSTANCE
+        const apiUrl = "http://127.0.0.1:8086/api/users/authenticate"; //REPLACE WITH OWN API URL
+        let users = [];
+        
+        function login() {
+            const body = {
+                uid: document.getElementById("username").value,
+                password: document.getElementById("password").value
+            };
+
+            const authOptions = {
+                ...options,
+                method: 'POST',
+                cache: 'no-cache',
+                body: JSON.stringify(body)
+            };
+
+            fetch(apiUrl, authOptions)
+                .then(response => {
+                    // handle error response from Web API
+                    if (!response.ok) {
+                        if (response.status === 401) {
+                            window.location.href = "{{site.baseurl}}/csablog/401.html";
+                        } else if (response.status === 403) {
+                            window.location.href = "{{site.baseurl}}/csablog/403.html";
+                        } else if (response.status === 400) {
+                            window.location.href = "{{site.baseurl}}/csablog/400.html";
+                        } else if (response.status === 404) {
+                            window.location.href = "{{site.baseurl}}/csablog/404.html";
+                        } else {
+                            // Handle other error responses
+                            const errorMsg = 'Login error: ' + response.status;
+                            console.log(errorMsg);
+                        }
+                        return;
+                    }
+
+                    alert("Login Successful")
+                    window.location.href = "{{site.baseurl}}/csablog/toc.html";
+                })
+                // catch fetch errors (ie ACCESS to server blocked)
+                .catch(err => {
+                    console.error(err);
+                });
+        }
+
+        window.login_user = login;
+
+            //post-login:
+            //lock new page behind status 'admin', throw 403 if attempting to do so on another account
+            //Go to new page if admin
+
+            //Edit (put), and delete (delete) inside
+            //Signup (post) on frontpage
+    </script>
+</body>
+</html>
